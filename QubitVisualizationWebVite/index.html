@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qudit Visualization</title>
+
+    <style>
+      body {
+        overflow: hidden;
+        margin: 0;
+      }
+
+      /* Label container stretched and positioned above controls */
+      #label-container {
+        position: absolute;
+        top: 5%;
+        left: 2%;
+        right: 2%;
+        font-family: sans-serif;
+        font-size: 4vw;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 1vw;
+        border-radius: 1vw;
+        z-index: 2;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        max-width: 96vw;
+        margin: 0 auto;
+      }
+
+      #label-container > div {
+        flex: 0.5;
+        text-align: center;
+      }
+
+      /* Measure button container */
+      #measure-container {
+        position: absolute;
+        left: 60%;
+        top: 18%; /* Just below label container */
+        transform: translateX(50%);
+        z-index: 2;
+      }
+
+      #MeasureButton {
+        width: 100px;
+        height: 25px;
+        font-size: 18px;
+        text-align: center;
+        
+      }
+
+      /* Controls container */
+      #controls {
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+        right: 2%;
+        z-index: 1;
+        font-family: sans-serif;
+        font-size: 2.5vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 2vw;
+        border-radius: 1.5vw;
+        user-select: none;
+        display: inline-block;
+        max-width: 96vw;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+
+      #controls label {
+        display: block;
+        margin-bottom: 0.5vw;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="range"] {
+        width: 100%;
+      }
+
+      #sliderValue {
+        margin-left: 400vw;
+        color: #eee;
+        font-weight: bold;
+      }
+
+      @media (min-width: 768px) {
+        #controls,
+        #label-container {
+          right: auto;
+          bottom: 2%;
+          max-width: 60vw;
+          font-size: 16px;
+          padding: 2vw;
+          border-radius: 8px;
+          margin: 0 auto;
+        }
+
+        #sliderValue {
+          margin-left: 700vw;
+        }
+
+        #controls {
+          width: 20%;
+        }
+
+        #label-container {
+          width: 20%;
+          display: flex;
+          top: 50%;
+          transform: translateY(-100%);
+          flex-direction: column;
+          gap: 0.5em;
+          align-items: center;
+        }
+
+        #label-container > div {
+          flex: 1;
+          text-align: center;
+        }
+
+        #measure-container {
+          /* On desktop center vertically between containers */
+          top: 53.5%;
+          left: 12%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
+
+        #MeasureButton {
+          width: 180px;
+          height: 40px;
+          font-size: 18px;
+        }
+      }
+    </style>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="label-container">
+      <div id="AContainer">
+        <span id="label-A">A</span> probability <span id="value-A"></span>
+      </div>
+      <div id="BContainer">
+        <span id="label-B">B</span> probability <span id="value-B"></span>
+      </div>
+      <div id="CContainer">
+        <span id="label-C">C</span> probability <span id="value-C"></span>
+      </div>
+      <div id="DContainer">
+        <span id="label-D">D</span> probability <span id="value-D"></span>
+      </div>
+      <div id="RContainer">Length of radius is <span id="label-R"></span></div>
+    </div>
+
+    <div id="measure-container">
+      <button id="MeasureButton">Measure</button>
+    </div>
+
+    <div id="controls">
+      <label>
+        <input type="checkbox" id="toggle-visuals" />
+        Show Details
+      </label>
+      <label>
+        <input type="checkbox" id="toggle-plains" />
+        Enable Planes
+      </label>
+
+      <label for="sliderY">
+        Change <span style="color: red; font-size: 2vw">A</span> <span style="color: blue; font-size: 2vw">B </span>probabilities
+      </label>
+      <input type="range" id="sliderY" min="0.0005" max="1" step="0.001" value="0.5" />
+
+      <label for="sliderX">
+        Change <span style="color: red; font-size: 2vw">A</span> <span style="color: yellow; font-size: 2vw">D </span>probabilities
+      </label>
+      <input type="range" id="sliderX" min="0.0005" max="1" step="0.001" value="0.5" />
+
+      <label for="sliderZ">
+        Change <span style="color: orange; font-size: 2vw;">C</span> <span style="color: yellow; font-size: 2vw">D</span> probabilities
+      </label>
+      <input type="range" id="sliderZ" min="0.0005" max="1" step="0.001" value="0.5" />
+    </div>
+
+    <script type="module" src="src/index.js"></script>
+  </body>
+</html>

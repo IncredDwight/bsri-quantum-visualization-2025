@@ -1,0 +1,117 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <style>
+  body {
+    margin: 0;
+  }
+
+ #label-container {
+  position: absolute;
+  top: 78%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-family: sans-serif;
+  font-size: 17.5px;
+  background-color: rgba(0, 0, 0, 0.00);
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+  width: 95%;
+
+  display: flex;               
+  flex-direction: column;     
+  align-items: center;          
+  gap: 12px;                    
+}
+
+  #controls {
+    position: absolute;
+    top: 150px;
+    left: 10px;
+    z-index: 1;
+    font-family: sans-serif;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 8px 12px;
+    border-radius: 4px;
+    user-select: none;
+    display: inline-block;
+  }
+
+  #controls label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  #mySlider {
+    width: 150px;
+    vertical-align: middle;
+  }
+
+  #sliderValue {
+    margin-left: 8px;
+    color: #222;
+    font-weight: bold;
+  }
+
+  #labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  #measureButton {
+    position: absolute;
+    top: 73%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5vh;
+    width: 30vw;
+    min-width: 110px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 600px) {
+    #measureButton {
+      font-size: 16px;
+      top:68%;
+    }
+    #label-container {
+      top: 75%;
+      font-size: 15px
+    }
+
+  }
+</style>
+
+  </head>
+  <body style="margin:0; overflow:hidden; background:#222;">
+    <canvas id="canvas" style="display:block;"></canvas>
+    <div id="labels" style="position:absolute; top:0; left:0; pointer-events:none;"></div>
+    <script type="module" src="src/main.js"></script>
+    <div id="label-container">
+      <div id="instruction-label" style="color:black; font-style: italic; font-family: initial; font-size: 20px"> Move the point to choose a quitrit state</div>
+      <div id="label" style="color:black;">Your chance of measuring the <span id="label-AText" style="color: red;">A</span> state is <span id="label-A" style="color: red;">00.00%</span></div>
+      <div id="label" style="color:black;">Your chance of measuring the <span id="label-BText" style="color: blue;">B</span> state is <span id="label-B" style="color: blue;">00.00%</span></div>
+      <div id="label" style="color:black;">Your chance of measuring the <span id="label-CText" style="color: orange;">C</span> state is <span id="label-C" style="color: orange;">00.00%</span></div>
+      <div id="label-R-container" style="color:black;">The length of <span style="color: green;">radius</span> is <span id="label-R" style="color: orange;">00.00</span></div>
+    </div>
+    <button id ="measureButton">Measure</button>
+
+  </body>
+
+</html>
