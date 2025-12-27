@@ -1,1 +1,3 @@
-# bsri-quantum-visualization-2025
+# Qudit State Geometry Visualization
+**Interactive tools for visualizing the geometric mapping of algebraic representations of qudits**
+The repository contains the computational tools developed during my research in quantum phyiscs supervised under Paul Cadden-Zimansky at Bard College. The focus was on creating 2D, 3D interactive visualizations to understand the geometry of qutrit, 2-qubit probability simplicies. 
