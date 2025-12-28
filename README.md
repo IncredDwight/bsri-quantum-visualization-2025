@@ -5,4 +5,4 @@ The repository contains the computational tools developed during summer 2025 res
 **Associated Reserch:** This work will be presented at the **American Physical Society (APS) March Meeting 2026**, and the research paper is currently being prepared to be published at the *American Journal of Physics*.
 
 # Screenshot
-(screenshots/3DVisualization.png)
+[3D Probability Simplex](screenshots/3DVisualization.png)
